@@ -62,12 +62,35 @@ namespace TQVaultAE.GUI
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VaultForm));
+            this.toolTipButton = new System.Windows.Forms.ToolTip(this.components);
+            this.ButtonScaleTo1 = new TQVaultAE.GUI.Components.ScalingButton();
             this.buttonMaximize = new TQVaultAE.GUI.Components.ScalingButton();
             this.buttonMinimize = new TQVaultAE.GUI.Components.ScalingButton();
             this.buttonClose = new TQVaultAE.GUI.Components.ScalingButton();
-            this.toolTipButton = new System.Windows.Forms.ToolTip(this.components);
-            this.ButtonScaleTo1 = new TQVaultAE.GUI.Components.ScalingButton();
             this.SuspendLayout();
+            // 
+            // ButtonScaleTo1
+            // 
+            this.ButtonScaleTo1.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonScaleTo1.DownBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.DownBitmap")));
+            this.ButtonScaleTo1.FlatAppearance.BorderSize = 0;
+            this.ButtonScaleTo1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(44)))), ((int)(((byte)(28)))));
+            this.ButtonScaleTo1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(44)))), ((int)(((byte)(28)))));
+            this.ButtonScaleTo1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonScaleTo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ButtonScaleTo1.Image = ((System.Drawing.Image)(resources.GetObject("ButtonScaleTo1.Image")));
+            this.ButtonScaleTo1.Location = new System.Drawing.Point(26, -2);
+            this.ButtonScaleTo1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.ButtonScaleTo1.Name = "ButtonScaleTo1";
+            this.ButtonScaleTo1.OverBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.OverBitmap")));
+            this.ButtonScaleTo1.Size = new System.Drawing.Size(15, 15);
+            this.ButtonScaleTo1.SizeToGraphic = false;
+            this.ButtonScaleTo1.TabIndex = 3;
+            this.toolTipButton.SetToolTip(this.ButtonScaleTo1, "Scale back to normal size");
+            this.ButtonScaleTo1.UpBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.UpBitmap")));
+            this.ButtonScaleTo1.UseCustomGraphic = true;
+            this.ButtonScaleTo1.UseVisualStyleBackColor = true;
+            this.ButtonScaleTo1.Click += new System.EventHandler(this.ButtonScaleTo1_Click);
             // 
             // buttonMaximize
             // 
@@ -80,6 +103,7 @@ namespace TQVaultAE.GUI
             this.buttonMaximize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.buttonMaximize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximize.Image")));
             this.buttonMaximize.Location = new System.Drawing.Point(45, -2);
+            this.buttonMaximize.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.buttonMaximize.Name = "buttonMaximize";
             this.buttonMaximize.OverBitmap = ((System.Drawing.Bitmap)(resources.GetObject("buttonMaximize.OverBitmap")));
             this.buttonMaximize.Size = new System.Drawing.Size(15, 15);
@@ -102,6 +126,7 @@ namespace TQVaultAE.GUI
             this.buttonMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.buttonMinimize.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimize.Image")));
             this.buttonMinimize.Location = new System.Drawing.Point(5, -2);
+            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.buttonMinimize.Name = "buttonMinimize";
             this.buttonMinimize.OverBitmap = ((System.Drawing.Bitmap)(resources.GetObject("buttonMinimize.OverBitmap")));
             this.buttonMinimize.Size = new System.Drawing.Size(15, 15);
@@ -134,28 +159,6 @@ namespace TQVaultAE.GUI
             this.buttonClose.UseCustomGraphic = true;
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.CloseButtonClick);
-            // 
-            // ButtonScaleTo1
-            // 
-            this.ButtonScaleTo1.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonScaleTo1.DownBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.DownBitmap")));
-            this.ButtonScaleTo1.FlatAppearance.BorderSize = 0;
-            this.ButtonScaleTo1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(44)))), ((int)(((byte)(28)))));
-            this.ButtonScaleTo1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(44)))), ((int)(((byte)(28)))));
-            this.ButtonScaleTo1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonScaleTo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.ButtonScaleTo1.Image = ((System.Drawing.Image)(resources.GetObject("ButtonScaleTo1.Image")));
-            this.ButtonScaleTo1.Location = new System.Drawing.Point(26, -2);
-            this.ButtonScaleTo1.Name = "ButtonScaleTo1";
-            this.ButtonScaleTo1.OverBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.OverBitmap")));
-            this.ButtonScaleTo1.Size = new System.Drawing.Size(15, 15);
-            this.ButtonScaleTo1.SizeToGraphic = false;
-            this.ButtonScaleTo1.TabIndex = 3;
-            this.toolTipButton.SetToolTip(this.ButtonScaleTo1, "Scale back to normal size");
-            this.ButtonScaleTo1.UpBitmap = ((System.Drawing.Bitmap)(resources.GetObject("ButtonScaleTo1.UpBitmap")));
-            this.ButtonScaleTo1.UseCustomGraphic = true;
-            this.ButtonScaleTo1.UseVisualStyleBackColor = true;
-            this.ButtonScaleTo1.Click += new System.EventHandler(this.ButtonScaleTo1_Click);
             // 
             // VaultForm
             // 

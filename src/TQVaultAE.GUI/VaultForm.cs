@@ -504,8 +504,8 @@ namespace TQVaultAE.GUI
 				this.CreateBorderRects();
 		}
 
-		internal const int NORMAL_FORMWIDTH = 1350;
-		internal const int NORMAL_FORMHEIGHT = 910;
+		internal const int NORMAL_FORMWIDTH = 1450;
+		internal const int NORMAL_FORMHEIGHT = 1250;
 
 		/// <summary>
 		/// Scales the form according to the scale factor.

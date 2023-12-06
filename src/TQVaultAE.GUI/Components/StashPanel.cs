@@ -125,6 +125,9 @@ namespace TQVaultAE.GUI.Components
 		{
 			InitializeComponent();
 
+			panelSize.Width = 17;
+			panelSize.Height = 16;
+
 			this.TranslationService = this.ServiceProvider.GetService<ITranslationService>();
 			this.Database = this.ServiceProvider.GetService<IDatabase>();
 
@@ -197,7 +200,7 @@ namespace TQVaultAE.GUI.Components
 				BackColor = Color.Transparent,
 			};
 			table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-			table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+			table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
 
 			this.Controls.Add(table);
 			this.PlayerPanel = table;
@@ -205,7 +208,6 @@ namespace TQVaultAE.GUI.Components
 			table.BringToFront();
 
 			this.equipmentPanel.VisibleChanged += EquipmentPanel_VisibleChanged;
-
 			#endregion
 
 			this.buttonContextMenuStrip.Font = FontService.GetFont(9.0F * UIService.Scale);
@@ -541,6 +543,7 @@ namespace TQVaultAE.GUI.Components
 					BagButtonBase button = this.BagButtons[this.currentBag];
 					int buttonOffsetY = button.Location.Y + button.Size.Height;
 
+
 					if (this.currentBag == BAGID_EQUIPMENTPANEL)
 					{
 						// Equipment Panel
@@ -548,6 +551,11 @@ namespace TQVaultAE.GUI.Components
 							this.equipmentPanel.Sack = null;
 						else
 							this.equipmentPanel.Sack = this.Player.EquipmentSack;
+
+						int x_sz = 17 * UIService.ItemUnitSize + Convert.ToInt32(10.0F * UIService.Scale) + BorderPad;
+						int y_sz = 16 * UIService.ItemUnitSize + Convert.ToInt32(60.0F * UIService.Scale) + BorderPad;
+
+						this.Size = new Size(x_sz, y_sz);
 
 						this.background = this.EquipmentBackground;
 						this.equipmentPanel.Visible = true;
@@ -563,11 +571,16 @@ namespace TQVaultAE.GUI.Components
 						this.BagSackPanel.SackType = SackType.Stash;
 						this.BagSackPanel.ResizeSackPanel(this.transferStash.Width, this.transferStash.Height);
 
-						// Adjust location based on size.
-						int offsetX = Math.Max(0, (this.maxPanelSize.Width - this.transferStash.Width) * UIService.HalfUnitSize);
-						int offsetY = Math.Max(0, (this.maxPanelSize.Height - this.transferStash.Height) * UIService.HalfUnitSize);
+						int x_sz = this.transferStash.Width * UIService.ItemUnitSize + Convert.ToInt32(10.0F * UIService.Scale) + BorderPad;
+						int y_sz = this.transferStash.Height * UIService.ItemUnitSize + Convert.ToInt32(60.0F * UIService.Scale) + BorderPad;
 
-						this.BagSackPanel.Location = new Point(BorderPad + offsetX, buttonOffsetY + offsetY);
+						this.Size = new Size(x_sz, y_sz);
+
+						// Adjust location based on size.
+						int offsetX = 0;//Math.Max(0, (this.maxPanelSize.Width - this.transferStash.Width) * UIService.HalfUnitSize);
+						int offsetY = 0;//Math.Max(0, (this.maxPanelSize.Height - this.transferStash.Height) * UIService.HalfUnitSize);
+
+						this.BagSackPanel.Location = new Point(0 + offsetX, buttonOffsetY + offsetY);
 						this.equipmentPanel.Visible = false;
 						this.equipmentPanel.Enabled = false;
 						this.BagSackPanel.Visible = true;
@@ -579,13 +592,18 @@ namespace TQVaultAE.GUI.Components
 						this.background = this.StashBackground;
 						this.BagSackPanel.Sack = this.stash.Sack;
 						this.BagSackPanel.SackType = SackType.Stash;
-						this.BagSackPanel.ResizeSackPanel(this.stash.Width, this.stash.Height);
+						this.BagSackPanel.ResizeSackPanel(20, 20);
+
+						int x_sz = 20 * UIService.ItemUnitSize + Convert.ToInt32(10.0F * UIService.Scale) + BorderPad;
+						int y_sz = 20 * UIService.ItemUnitSize + Convert.ToInt32(60.0F * UIService.Scale) + BorderPad;
+
+						this.Size = new Size(x_sz, y_sz);
 
 						// Adjust location based on size so it will be centered.
-						int offsetX = Math.Max(0, (this.maxPanelSize.Width - this.stash.Width) * UIService.HalfUnitSize);
-						int offsetY = Math.Max(0, (this.maxPanelSize.Height - Math.Max(15, this.stash.Height)) * UIService.HalfUnitSize);
+						int offsetX = 0;//Math.Max(0, (this.maxPanelSize.Width - this.stash.Width) * UIService.HalfUnitSize);
+						int offsetY = 0;//Math.Max(0, (this.maxPanelSize.Height - Math.Max(20, this.stash.Height)) * UIService.HalfUnitSize);
 
-						this.BagSackPanel.Location = new Point(BorderPad + offsetX, buttonOffsetY + offsetY);
+						this.BagSackPanel.Location = new Point(0 + offsetX, buttonOffsetY + offsetY);
 						this.equipmentPanel.Visible = false;
 						this.equipmentPanel.Enabled = false;
 						this.BagSackPanel.Visible = true;
@@ -599,11 +617,17 @@ namespace TQVaultAE.GUI.Components
 						this.BagSackPanel.SackType = SackType.Stash;
 						this.BagSackPanel.ResizeSackPanel(this.relicVaultStash.Width, this.relicVaultStash.Height);
 
-						// Adjust location based on size.
-						int offsetX = Math.Max(0, (this.maxPanelSize.Width - this.relicVaultStash.Width) * UIService.HalfUnitSize);
-						int offsetY = Math.Max(0, (this.maxPanelSize.Height - this.relicVaultStash.Height) * UIService.HalfUnitSize);
 
-						this.BagSackPanel.Location = new Point(BorderPad + offsetX, buttonOffsetY + offsetY);
+						int x_sz = 20 * UIService.ItemUnitSize + Convert.ToInt32(10.0F * UIService.Scale) + BorderPad;
+						int y_sz = 20 * UIService.ItemUnitSize + Convert.ToInt32(60.0F * UIService.Scale) + BorderPad;
+
+						this.Size = new Size(x_sz, y_sz);
+
+						// Adjust location based on size.
+						int offsetX = 0;//Math.Max(0, (this.maxPanelSize.Width - this.relicVaultStash.Width) * UIService.HalfUnitSize);
+						int offsetY = 0;//Math.Max(0, (this.maxPanelSize.Height - this.relicVaultStash.Height) * UIService.HalfUnitSize);
+
+						this.BagSackPanel.Location = new Point(0 + offsetX, buttonOffsetY + offsetY);
 						this.equipmentPanel.Visible = false;
 						this.equipmentPanel.Enabled = false;
 						this.BagSackPanel.Visible = true;

@@ -250,7 +250,6 @@ public class SackPanel : Panel, IScalingControl
 		};
 
 		this.gridPen = new Pen(Color.FromArgb(142, 140, 129));
-
 		this.numberFont = new Font("Arial", 10.0F * UIService.Scale, GraphicsUnit.Pixel);
 		this.numberBrush = new SolidBrush(Color.White);
 		this.numberFormat = new StringFormat();

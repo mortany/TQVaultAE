@@ -25,7 +25,7 @@ public partial class MainForm
 	/// <param name="numBags">Number of bags in the vault panel.</param>
 	private void CreateVaultPanel(int numBags)
 	{
-		this.vaultPanel = new VaultPanel(this.DragInfo, numBags, new Size(18, 20), 1, AutoMoveLocation.Vault, this.ServiceProvider);
+		this.vaultPanel = new VaultPanel(this.DragInfo, numBags, new Size(20, 30), 1, AutoMoveLocation.Vault, this.ServiceProvider);
 
 		this.vaultPanel.DrawAsGroupBox = false;
 
@@ -47,7 +47,7 @@ public partial class MainForm
 	/// <param name="numBags">Number of bags in the secondary vault panel.</param>
 	private void CreateSecondaryVaultPanel(int numBags)
 	{
-		this.secondaryVaultPanel = new VaultPanel(this.DragInfo, numBags, new Size(18, 20), 1, AutoMoveLocation.SecondaryVault, this.ServiceProvider);
+		this.secondaryVaultPanel = new VaultPanel(this.DragInfo, numBags, new Size(20, 30), 1, AutoMoveLocation.SecondaryVault, this.ServiceProvider);
 		this.secondaryVaultPanel.DrawAsGroupBox = false;
 
 		this.secondaryVaultPanel.OnNewItemHighlighted += new EventHandler<SackPanelEventArgs>(this.NewItemHighlightedCallback);

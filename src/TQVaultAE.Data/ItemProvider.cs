@@ -1287,6 +1287,9 @@ VariableValue Raw : {valueRaw}
 		{
 			// Check to see if itm item creates a pet
 			var skillName = itm.baseItemInfo.GetString("skillName");
+
+			if(string.IsNullOrWhiteSpace(skillName)) return varNum;
+
 			var petSkill = Database.GetRecordFromFile(skillName);
 
 			string petID = petSkill.GetString("spawnObjects", 0);

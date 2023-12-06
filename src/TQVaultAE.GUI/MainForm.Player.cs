@@ -173,7 +173,7 @@ public partial class MainForm
 	/// </summary>
 	private void CreatePlayerPanel()
 	{
-		this.playerPanel = new PlayerPanel(this.DragInfo, 4, new Size(12, 5), new Size(8, 5), this.ServiceProvider);
+		this.playerPanel = new PlayerPanel(this.DragInfo, 4, new Size(8, 9), new Size(12, 9), this.ServiceProvider);
 
 		this.playerPanel.DrawAsGroupBox = false;
 
